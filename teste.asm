@@ -6,7 +6,7 @@ _start:                  ;tell linker entry point
    ;create the file
    mov  eax, 8
    mov  ebx, file_name
-   mov  ecx, 0777        ;read, write and execute by all
+   mov  ecx, 0x1B4       ;0x1B4 = octal 0664
    int  0x80             ;call kernel
 	
    mov [fd_out], eax
