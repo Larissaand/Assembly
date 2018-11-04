@@ -1,3 +1,9 @@
+cod: cod.o
+	ld -m elf_i386 -o cod cod.o
+
+cod.o: cod.asm
+	nasm -f elf cod.asm
+
 teste: teste.o
 	ld -m elf_i386 -o teste teste.o
 
