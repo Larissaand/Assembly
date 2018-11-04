@@ -21,11 +21,11 @@ global      _start
 _start:
 
 
-    mov     ebp, esp
-    cmp     dword [ebp + 8], 1
+    ;mov     ebp, esp
+    cmp     dword [esp], 1
     je      NoArgs 
     
-    cmp     dword [ebp + 8], MAXARGS        ; check total args entered
+    cmp     dword [esp], MAXARGS        ; check total args entered
     ja      TooManyArgs                     ; if total is greater than MAXARGS, show error and quit
 
     mov     ebx, 3
