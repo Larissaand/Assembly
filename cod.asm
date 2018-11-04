@@ -21,11 +21,11 @@ global      _start
 _start:
 
 
-    mov     ebp, esp
-    cmp     dword [ebp + 4], 1
+    ;mov     ebp, esp
+    cmp     dword [esp], 1
     je      NoArgs 
     
-    cmp     dword [ebp + 4], MAXARGS        ; check total args entered
+    cmp     dword [esp], MAXARGS        ; check total args entered
     ja      TooManyArgs                     ; if total is greater than MAXARGS, show error and quit
 
     mov     ebx, 3
@@ -33,7 +33,7 @@ _start:
      
 
 DoNextArg: 
-    mov     edi, dword [ebp + 4 * ebx]
+    mov     edi, dword [ebp + 8 * ebx]
     test    edi, edi
     jz      Exit
     
@@ -48,16 +48,16 @@ DoNextArg:
 
 
 
-    mov     edx, dword [ebp + 4 * ebx]
+    mov     edx, dword [ebp + 8 * ebx]
 
     
     inc     ebx
     
-    mov     edi, dword [ebp + 4 * ebx]
+    mov     edi, dword [ebp + 8 * ebx]
     test    edi, edi
     jz      Exit
 
-    mov     ecx, dword [ebp + 4 * ebx]
+    mov     ecx, dword [ebp + 8 * ebx]
     
     ;create the file
     mov  eax, 8
