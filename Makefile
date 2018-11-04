@@ -9,3 +9,6 @@ teste: teste.o
 
 teste.o: teste.asm
 	nasm -f elf teste.asm
+
+loc: loc.c
+	gcc -g -o loc loc.c
